@@ -1,3 +1,15 @@
+# count matrix generation files
+data/gene_expression/
+data/hyperspectral/
+data/mnist/
+data/mutation_count/
+data/newsgroup1719/
+data/olivetti/
+
+# too big
+data/mnist.npy
+data/newsgroup1719.npy
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

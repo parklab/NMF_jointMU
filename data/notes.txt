@@ -1,0 +1,61 @@
+Gene expression
+---------------
+- filtered data from 3k PBMCs obtained from following the Scanpy tutorial
+  https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html
+	
+- link to dataset:
+  https://support.10xgenomics.com/single-cell-gene-expression/datasets/1.1.0/pbmc3k
+	
+- after the filtering steps (up until highly variable genes) and transposing, the matrix is of shape 1838 x 2638 (n_genes x n_cells)
+
+
+
+Hyperspectral
+-------------
+- downloaded from: https://github.com/Kosty1024Bit/HSI-Processing
+  because https://aviris.jpl.nasa.gov/data/free_data.html did not work
+
+- subsetting of hyperspectral image
+  The Moffett image is huge. We followed the "Joint Majorization-Minimization for Nonnegative Matrix Factorization with
+  the β-divergence" paper and extracted a 50x50 window from the middle of the image. Some bands have negative values. We
+  exclueded them, reducing the number of bands from 224 to 189. This matches the size of the data used in the above paper.
+
+  >>> import spectral   # https://github.com/spectralpython/spectral
+  >>> moffett_hsi = spectral.io.envi.open("moffett.hdr", "moffett")
+  >>> moffett_hsi.shape
+  (1924, 753, 224)
+  >>> window = moffett_hsi[962-25:962+25, 376-25:376+25, :]
+  >>> window.shape
+  (50, 50, 224)
+
+- reshaping
+  flattened 2500 pixels over 189 spectral bands
+
+
+
+MNIST
+-----
+- downloaded from https://www.kaggle.com/datasets/oddrationale/mnist-in-csv
+
+
+
+Mutation count data
+-------------------
+- Pan-cancer analysis of whole genomes (PCAWG) single base substitution counts
+- https://www.nature.com/articles/s41586-020-1969-6
+- shape (96, 2778) (n_mutation_types x n_individuals)
+
+
+
+Newsgroup1719
+-------------
+- data from sklearn via sklearn.datasets.fetch_20newsgroups_vectorized
+- subsetted to documents with labels 17, 18, and 19
+- subsetted to 10000 most common words
+
+
+
+Olivetti
+--------
+- data from sklearn via sklearn.datasets.fetch_olivetti_faces
+- shape (4096, 400)

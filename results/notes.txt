@@ -1,0 +1,4 @@
+Each saved history from an NMF run is stored as a dictionary:
+
+* Keys: iteration numbers
+* Values: tuples of (objective‑function value, runtime) for each iteration
