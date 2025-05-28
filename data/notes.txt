@@ -36,7 +36,7 @@ Hyperspectral
 MNIST
 -----
 - downloaded from https://www.kaggle.com/datasets/oddrationale/mnist-in-csv
-
+- shape (784, 60000) (n_pixels x n_images)
 
 
 Mutation count data
@@ -52,10 +52,11 @@ Newsgroup1719
 - data from sklearn via sklearn.datasets.fetch_20newsgroups_vectorized
 - subsetted to documents with labels 17, 18, and 19
 - subsetted to 10000 most common words
+- shape (10000, 2343) (n_words, n_documents)
 
 
 
 Olivetti
 --------
 - data from sklearn via sklearn.datasets.fetch_olivetti_faces
-- shape (4096, 400)
+- shape (4096, 400) (n_pixels, n_images)
